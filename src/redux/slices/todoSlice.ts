@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+//import func redux
 import { createSlice } from "@reduxjs/toolkit";
+
 //import data type
 import {
   filterType,
@@ -8,6 +11,7 @@ import {
   todoType,
   trashType,
 } from "../../type";
+
 //import data initialState
 import { initialFilterState } from "../../util/data";
 
@@ -61,15 +65,18 @@ const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
+    //action reducer to set todo
     setTodo: (state, action) => {
       state.todo = action.payload;
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to add todo
     addTodo: (state, action) => {
       state.todo = [...state.todo, action.payload];
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to remove todo from state.todo and move it to the state.trash
     removeFromTodo: (state, action) => {
       const searchtodo = state.todo.find(
@@ -86,6 +93,7 @@ const todoSlice = createSlice({
       state.todo = filteredTodo;
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to edit data todo
     editTodo: (state, action) => {
       const newTodo = state.todo.map((item: todoType) => {
@@ -97,6 +105,7 @@ const todoSlice = createSlice({
       state.todo = newTodo;
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to switch/change completed status todo
     switchIsCompleted: (state, action) => {
       const searchedTodo = state.todo.find(
@@ -107,21 +116,25 @@ const todoSlice = createSlice({
       }
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to set state.search
     setSearch: (state, action) => {
       state.search = action.payload;
       localStorage.setItem("todo", JSON.stringify(state.todo));
     },
+
     //action reducer to set state.filter
     setFilter: (state, action) => {
       state.filter = action.payload;
       localStorage.setItem("filter", JSON.stringify(state.filter));
     },
+
     //action reducer to set state.sort
     setSort: (state, action) => {
       state.sort = action.payload;
       localStorage.setItem("sort", JSON.stringify(state.sort));
     },
+
     //action reducer to set new dataTodo categories to the state.categories
     setCategories: (state, action) => {
       const dataTodo: todoType[] = action.payload;
@@ -129,6 +142,7 @@ const todoSlice = createSlice({
       state.categories = [...newCategories];
       localStorage.setItem("categories", JSON.stringify(state.categories));
     },
+
     //action reducer to add new dataTodo categories to the state.categories
     addImportCategories: (state, action) => {
       const dataTodo: todoType[] = action.payload;
@@ -136,11 +150,13 @@ const todoSlice = createSlice({
       state.categories = [...state.categories, ...newCategories];
       localStorage.setItem("categories", JSON.stringify(state.categories));
     },
+
     //action reducer to add new category
     addCategory: (state, action) => {
       state.categories = [...state.categories, action.payload];
       localStorage.setItem("categories", JSON.stringify(state.categories));
     },
+
     //action reducer to restore todo from state.trash and move it to the state.todo
     restoreTodo: (state, action) => {
       const searchTodo = state.trash.find(
@@ -165,6 +181,7 @@ const todoSlice = createSlice({
         localStorage.setItem("trash", JSON.stringify(state.trash));
       }
     },
+
     //action reducer to filter deleted todo from state.trash
     deleteTodoPermanently: (state, action) => {
       const filteredTrash = state.trash.filter(

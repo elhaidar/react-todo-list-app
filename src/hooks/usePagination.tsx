@@ -1,3 +1,4 @@
+//import react hooks
 import { useMemo } from "react";
 
 export const DOTS = ". . .";

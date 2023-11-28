@@ -1,7 +1,12 @@
+//import icon
 import { EditIcon } from "@chakra-ui/icons";
+
+//import library UI
 import { MenuItem, useDisclosure } from "@chakra-ui/react";
+
 //import styling
 import { primaryHoverStyle } from "../../../style";
+
 //import custom form component
 import CustomForm from "../../../Form";
 

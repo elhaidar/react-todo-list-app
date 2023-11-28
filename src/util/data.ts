@@ -1,13 +1,19 @@
+//import icon
 import { FiCalendar, FiHome } from "react-icons/fi";
-import { filterType } from "../type";
-import { v4 as uuidv4 } from "uuid";
 import { IoIosStats } from "react-icons/io";
 import { BiCategoryAlt } from "react-icons/bi";
 import { MdOutlineTimeline } from "react-icons/md";
 import { BsFillTrash3Fill } from "react-icons/bs";
 
+//import data type
+import { filterType } from "../type";
+
+//import uuid for generate id
+import { v4 as uuidv4 } from "uuid";
+
 const uniqueId = uuidv4();
 
+//initial data todo item
 export const initialTodoItemState = {
   id: uniqueId,
   title: "",
@@ -18,6 +24,7 @@ export const initialTodoItemState = {
   date: "",
 };
 
+//initial data filter
 export const initialFilterState: filterType = {
   priorities: [],
   categories: [],
@@ -25,6 +32,7 @@ export const initialFilterState: filterType = {
   to_date: "",
 };
 
+//list sort param
 export const listSort = [
   {
     value: "priority",
@@ -48,6 +56,7 @@ export const listSort = [
   },
 ];
 
+//list navItem
 export const navLinks = [
   {
     title: "Home",
@@ -81,6 +90,7 @@ export const navLinks = [
   },
 ];
 
+//Map data priority
 export const priorityTagMap = new Map([
   ["tinggi", "danger"],
   ["sedang", "warning"],

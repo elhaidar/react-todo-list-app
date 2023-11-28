@@ -1,3 +1,4 @@
+//data type for state.todo redux
 export type todoStateType = {
   todo: todoType[];
   categories: string[];
@@ -8,6 +9,7 @@ export type todoStateType = {
   trash: trashType[];
 };
 
+//data type for todo
 export type todoType = {
   id: string;
   title: string;
@@ -18,6 +20,7 @@ export type todoType = {
   date: string;
 };
 
+//data type for trash
 export type trashType = {
   id: string;
   title: string;
@@ -29,6 +32,7 @@ export type trashType = {
   deletedAt: string;
 };
 
+//data type for filter
 export type filterType = {
   priorities: string[];
   categories: string[];
@@ -36,6 +40,7 @@ export type filterType = {
   to_date: string;
 };
 
+//data type for sort
 export type sortType = {
   order: string;
   sortBy: string;

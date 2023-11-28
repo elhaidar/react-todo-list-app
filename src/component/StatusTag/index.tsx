@@ -1,12 +1,16 @@
+//import library UI
 import { Tag } from "@chakra-ui/react";
+
 //import data type
 import { todoType } from "../../type";
+
 //import styling
 import {
   completedStatusTagVariant,
   pendingStatusTagVariant,
   tagPriorityVariant,
 } from "../style";
+
 //import func util
 import getDateNow from "../../util/getDateNow";
 

@@ -1,5 +1,9 @@
+//import icon
 import { DeleteIcon } from "@chakra-ui/icons";
+
+//import library UI
 import { Stack, useDisclosure } from "@chakra-ui/react";
+
 //import styling
 import {
   buttonIconColor,
@@ -7,8 +11,10 @@ import {
   buttonIconCompletedHoverStyle,
   buttonIconHoverStyle,
 } from "../../../style";
+
 //import alert dialog modal component
 import AlertDialogDelete from "../../../AlertDialogDelete";
+
 //import data type
 import { todoType } from "../../../../type";
 

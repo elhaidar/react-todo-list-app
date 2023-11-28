@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+//import library UI
 import {
   Button,
   AlertDialog,
@@ -10,12 +12,19 @@ import {
   AlertDialogBody,
   AlertDialogCloseButton,
 } from "@chakra-ui/react";
+
+//import dispatch
 import { useDispatch } from "react-redux";
-import { useRef } from "react";
+
 //import type untuk useDispatch
 import { AppDispatch } from "../../redux/store";
+
+//import react hooks
+import { useRef } from "react";
+
 //import styling
 import { backgroundContainerCardColor, textColor } from "../style";
+
 //import reducer action dari todoSlice redux
 import { removeFromTodo } from "../../redux/slices/todoSlice";
 
@@ -48,6 +57,7 @@ const AlertDialogDelete = ({
         p={4}
         bg={backgroundContainerCardColor()}
         color={textColor()}
+        w={{ base: "85%", sm: "auto" }}
       >
         <AlertDialogHeader>Move to Trash?</AlertDialogHeader>
         <AlertDialogCloseButton />

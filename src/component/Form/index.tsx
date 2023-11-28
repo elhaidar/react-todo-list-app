@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+//import library UI
 import {
   Button,
   FormControl,
@@ -11,6 +13,7 @@ import {
   MenuItem,
   MenuList,
   Modal,
+  ModalCloseButton,
   ModalContent,
   ModalOverlay,
   Radio,
@@ -19,6 +22,7 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
+
 //import styling dari component/style.ts
 import {
   backgroundContainerCardColor,
@@ -28,19 +32,32 @@ import {
   scrollBarStyleSx,
   textColor,
 } from "../style";
+
+//import icon
 import { AddIcon, ChevronDownIcon, EditIcon } from "@chakra-ui/icons";
-//import data type dari type/index.ts
+
+//import data type from type/index.ts
 import { todoType } from "../../type";
-//import useAppSelector dari redux
+
+//import useAppSelector from redux
 import { AppDispatch, useAppSelector } from "../../redux/store";
+
+//import dispatch
 import { useDispatch } from "react-redux";
+
+//import react hooks
 import { useEffect, useState } from "react";
+
 //import initial data state
 import { initialTodoItemState } from "../../util/data";
+
 //import action reducer dari redux
 import { addCategory, addTodo, editTodo } from "../../redux/slices/todoSlice";
+
 //import util func getDate
 import getDate from "../../util/getDateNow";
+
+//import uuid for generate id
 import { v4 as uuidv4 } from "uuid";
 
 const CustomForm = ({
@@ -62,6 +79,7 @@ const CustomForm = ({
   const { categories }: { categories: string[] } = useAppSelector(
     (state) => state.todo
   );
+
   const { todo }: { todo: todoType[] } = useAppSelector((state) => state.todo);
   const dispatch = useDispatch<AppDispatch>();
 
@@ -168,39 +186,61 @@ const CustomForm = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={handleOnClose}>
+    <Modal isOpen={isOpen} onClose={handleOnClose} isCentered>
       <ModalOverlay />
-      <ModalContent w={"100%"} maxW={"500px"} rounded={"3xl"}>
+      <ModalContent
+        w={"100%"}
+        maxW={{ base: "300px", lg: "500px" }}
+        overflowX={"hidden"}
+        bg={"transparent"}
+      >
+        <ModalCloseButton color={textColor()} />
         <Stack
           w={"100%"}
           bg={backgroundContainerCardColor()}
-          p={8}
+          p={{ base: 6, lg: 8 }}
           rounded={"3xl"}
           color={textColor()}
         >
-          <Heading textAlign={"center"} fontSize={"3xl"} mb={2}>
+          <Heading
+            textAlign={"center"}
+            fontSize={{ base: "xl", lg: "3xl" }}
+            mb={2}
+          >
             {title}
           </Heading>
           <Stack as={"form"} onSubmit={onSubmit} w={"100%"}>
-            <FormControl id="title" isRequired mb={2}>
-              <FormLabel htmlFor="title">Title</FormLabel>
+            <FormControl id="title" isRequired mb={{ base: 0, lg: 2 }}>
+              <FormLabel htmlFor="title" fontSize={{ base: "sm", lg: "md" }}>
+                Title
+              </FormLabel>
               <Input
+                py={{ base: "0px" }}
+                px={{ base: "12px" }}
                 placeholder="Healing ke Ubud"
                 _placeholder={{ color: "inherit", opacity: 0.5 }}
                 focusBorderColor={inputFocusBorder()}
-                rounded={"3xl"}
+                rounded={"md"}
                 borderColor={textColor()}
                 onChange={(e) =>
                   setTodoItem({ ...todoItem, title: e.target.value })
                 }
                 value={todoItem.title}
+                fontSize={{ base: "sm", lg: "md" }}
               />
             </FormControl>
-            <FormControl id="description" isRequired mb={2}>
-              <FormLabel htmlFor="description">Description</FormLabel>
+            <FormControl id="description" isRequired mb={{ base: 0, lg: 2 }}>
+              <FormLabel
+                htmlFor="description"
+                fontSize={{ base: "sm", lg: "md" }}
+              >
+                Description
+              </FormLabel>
               <Textarea
+                py={{ base: "8px" }}
+                px={{ base: "12px" }}
                 placeholder="lorem ipsum dolor si amet"
-                rounded={"3xl"}
+                rounded={"md"}
                 _placeholder={{ color: "inherit", opacity: 0.5 }}
                 focusBorderColor={inputFocusBorder()}
                 borderColor={textColor()}
@@ -211,10 +251,16 @@ const CustomForm = ({
                   })
                 }
                 value={todoItem.description}
+                fontSize={{ base: "sm", lg: "md" }}
               />
             </FormControl>
-            <FormControl id="priority" mb={2} isRequired>
-              <FormLabel htmlFor={todoItem.priority}>Priority</FormLabel>
+            <FormControl id="priority" mb={{ base: 0, lg: 2 }} isRequired>
+              <FormLabel
+                htmlFor={todoItem.priority}
+                fontSize={{ base: "sm", lg: "md" }}
+              >
+                Priority
+              </FormLabel>
               <RadioGroup
                 display={"flex"}
                 gap={4}
@@ -222,6 +268,7 @@ const CustomForm = ({
                   setTodoItem({ ...todoItem, priority: value })
                 }
                 value={todoItem.priority}
+                size={{ base: "sm", lg: "md" }}
               >
                 <Radio
                   value="tinggi"
@@ -249,11 +296,14 @@ const CustomForm = ({
                 </Radio>
               </RadioGroup>
             </FormControl>
-            <FormControl id="date" mb={2} isRequired>
-              <FormLabel htmlFor="date">Date</FormLabel>
+            <FormControl id="date" mb={{ base: 0, lg: 2 }} isRequired>
+              <FormLabel htmlFor="date" fontSize={{ base: "sm", lg: "md" }}>
+                Date
+              </FormLabel>
               <Input
                 placeholder="Select Date and Time"
-                size="md"
+                size={{ base: "sm", lg: "md" }}
+                rounded={"md"}
                 type="date"
                 borderColor={textColor()}
                 onChange={(e) => {
@@ -269,10 +319,11 @@ const CustomForm = ({
                 }
               />
             </FormControl>
-
             <FormControl id="category" isRequired>
-              <FormLabel htmlFor="category">Category</FormLabel>
-              <Menu boundary={"scrollParent"}>
+              <FormLabel htmlFor="category" fontSize={{ base: "sm", lg: "md" }}>
+                Category
+              </FormLabel>
+              <Menu boundary={"scrollParent"} closeOnBlur={false}>
                 <MenuButton
                   as={Button}
                   rightIcon={<ChevronDownIcon />}
@@ -285,6 +336,9 @@ const CustomForm = ({
                   fontWeight={"normal"}
                   _active={buttonMonoHoverStyle()}
                   isDisabled={categorySelected ? true : false}
+                  fontSize={{ base: "sm", lg: "md" }}
+                  py={{ base: "0px" }}
+                  px={{ base: "12px" }}
                 >
                   {categorySelected ? categorySelected : todoItem.category}
                 </MenuButton>
@@ -292,7 +346,7 @@ const CustomForm = ({
                   color={textColor()}
                   borderColor={textColor()}
                   bg={cardBackgroundColor()}
-                  minW={"440px"}
+                  pos={"absolute"}
                   w={"100%"}
                   overflowY={"auto"}
                   maxHeight={"200px"}
@@ -354,7 +408,7 @@ const CustomForm = ({
               color={textColor()}
               borderColor={textColor()}
               _hover={buttonMonoHoverStyle()}
-              mt={8}
+              mt={{ base: 4, lg: 8 }}
               variant={"outline"}
             >
               {title}

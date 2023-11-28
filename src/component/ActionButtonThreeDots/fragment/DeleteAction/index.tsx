@@ -1,7 +1,12 @@
+//import icon
 import { DeleteIcon } from "@chakra-ui/icons";
+
+//import library UI
 import { MenuItem, useDisclosure } from "@chakra-ui/react";
+
 //import styling
 import { primaryHoverStyle } from "../../../style";
+
 //import alert dialog delete confirmation
 import AlertDialogDelete from "../../../AlertDialogDelete";
 

@@ -316,3 +316,19 @@ export const textUnselectedColor = () => {
     return "gray.400";
   }
 };
+
+export const titleFontSize = () => {
+  return { base: "md", lg: "lg" };
+};
+
+export const descFontSize = () => {
+  return { base: "xs", md: "sm" };
+};
+
+export const categoryTagFontSize = () => {
+  return { base: "9px", md: "xs" };
+};
+
+export const dateFontSize = () => {
+  return { base: "xs", lg: "sm" };
+};

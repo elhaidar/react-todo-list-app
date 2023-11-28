@@ -1,3 +1,4 @@
+//func for getDateNow in YYYY-MM-DD format
 export default function getDateNow() {
   const now = new Date();
   const year = now.getFullYear();

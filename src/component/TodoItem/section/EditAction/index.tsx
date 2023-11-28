@@ -1,8 +1,13 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+//import icon
 import { EditIcon } from "@chakra-ui/icons";
+
+//import library UI
 import { Stack, useDisclosure } from "@chakra-ui/react";
+
 //import data type
 import { todoType } from "../../../../type";
+
 //import styling
 import {
   buttonIconColor,
@@ -10,6 +15,7 @@ import {
   buttonIconCompletedHoverStyle,
   buttonIconHoverStyle,
 } from "../../../style";
+
 //import custom modal form component
 import CustomForm from "../../../Form";
 

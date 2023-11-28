@@ -1,15 +1,23 @@
+//import library UI
 import { Icon, Menu, MenuButton, MenuList, Stack } from "@chakra-ui/react";
+
+//import icon
 import { HiOutlineDotsHorizontal, HiOutlineDotsVertical } from "react-icons/hi";
+
 //import action button component
 import EditAction from "./fragment/EditAction";
 import DeleteAction from "./fragment/DeleteAction";
+
 //import styling
 import {
   backgroundContainerColor,
   buttonIconCompletedColor,
   textColor,
 } from "../style";
+
+//import data type
 import { todoType } from "../../type";
+
 const ActionButtonThreeDots = ({
   todoItem,
   isVertical = false,

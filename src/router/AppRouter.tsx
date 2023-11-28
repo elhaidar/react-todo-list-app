@@ -1,19 +1,39 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
+//import react-router
 import {
   Route,
   RouterProvider,
   createBrowserRouter,
   createRoutesFromChildren,
 } from "react-router-dom";
-import RootLayout from "../page/Layout";
-import Layout from "../page/Dashboard/Layout";
-import TodoPage from "../page/Dashboard/Todo";
-import CategoriesPage from "../page/Dashboard/Categories";
-import TimelinePage from "../page/Dashboard/Timeline";
-import StatisticsPage from "../page/Dashboard/Statistics";
-import HomePage from "../page/Dashboard/Home";
-import NotFound from "../page/404";
-import TrashPage from "../page/Dashboard/Trash";
+
+//import Root Layout
+import RootLayout from "../page/RootLayout";
+
+//import Page Layout
+import Layout from "../page/Layout";
+
+//import Todo Page
+import TodoPage from "../page/Todo";
+
+//import Categories Page
+import CategoriesPage from "../page/Categories";
+
+//import Timeline Page
+import TimelinePage from "../page/Timeline";
+
+//import Statistics Page
+import StatisticsPage from "../page/Statistics";
+
+//import Home Page
+import HomePage from "../page/Home";
+
+//import Not Found Page
+import NotFound from "../page/Not Found/404";
+
+//import Trash Page
+import TrashPage from "../page/Trash";
 
 const AppRouter = () => {
   const router = createBrowserRouter(

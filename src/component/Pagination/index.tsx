@@ -1,7 +1,12 @@
+//import library UI
 import { HStack, Button, IconButton } from "@chakra-ui/react";
+
 //import custom hooks
 import { usePagination, DOTS } from "../../hooks/usePagination";
+
+//import icon
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
+
 //import styling
 import {
   backgroundContainerCardColor,
