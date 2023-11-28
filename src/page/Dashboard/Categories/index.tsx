@@ -101,7 +101,6 @@ const CategoriesPage = () => {
                   <TodoItem
                     key={item.id} // Ensure 'item.id' is unique
                     todo={item}
-                    isExpandAll={false}
                     maxW="45%"
                     size="18px"
                     buttonGap="8px"

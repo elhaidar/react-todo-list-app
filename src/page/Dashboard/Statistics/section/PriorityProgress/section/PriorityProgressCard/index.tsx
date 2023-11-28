@@ -175,7 +175,6 @@ const PriorityProgressCard = ({
               <Stack pb={2} w={"100%"} key={item.id}>
                 <TodoItem
                   todo={item}
-                  isExpandAll={false}
                   size="18px"
                   buttonGap="8px"
                   maxW="100%"

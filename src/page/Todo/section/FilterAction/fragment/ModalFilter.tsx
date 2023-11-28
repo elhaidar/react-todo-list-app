@@ -61,7 +61,7 @@ function ModalFilter({
   );
   const { priorities, categories } = useAppSelector((state) => state.todo);
   const toast = useToast();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   //track redux filter state change
   useEffect(() => {
